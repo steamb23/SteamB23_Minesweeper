@@ -4,10 +4,9 @@
 using namespace SteamB23;
 using namespace std;
 
-MinesweeperGame game(15,12);
+MinesweeperGame game(13,13);
 void main()
 {
-    game.CreateTileMap(20);
-    game.PrintTileMap(0,0);
+    game.Run();
     SteamB23::Console::ReadKey();
 }

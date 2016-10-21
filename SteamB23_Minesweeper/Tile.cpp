@@ -4,7 +4,7 @@
 
 Tile::Tile()
 {
-    tileState = TileState::Open;
+    tileState = TileState::None;
 }
 
 TileInfo Tile::GetTileStateChar()
