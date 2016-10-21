@@ -6,6 +6,7 @@ using namespace std;
 
 void main()
 {
+    SteamB23::Console::SetTitle(TEXT("Áö·ÚÃ£±â"));
     MinesweeperGame game;
     game.Run();
 }

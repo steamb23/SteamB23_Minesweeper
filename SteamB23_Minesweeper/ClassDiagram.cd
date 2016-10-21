@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MinesweeperGame">
+    <Position X="0.5" Y="0.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>IDYUAICAAAgAIwCAAAAAAAAAAAAAgAAAAAAAgAgAAAI=</HashCode>
+      <FileName>MinesweeperGame.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MineTile">
+    <Position X="4.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAEAAAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MineTile.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Point">
+    <Position X="8" Y="0.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAABgAAAAAAA=</HashCode>
+      <FileName>Point.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Tile">
+    <Position X="3.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAAQAhAIAAIBAAQAAAACAAAQI=</HashCode>
+      <FileName>Tile.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TileContainner">
+    <Position X="5.25" Y="0.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>ARAAAQQAAAAAAAAgAAAAAiASAgAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>TileContainner.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="TileInfo">
+    <Position X="6" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAAAAAAAACgQAAAAAAAAAAA=</HashCode>
+      <FileName>TileInfo.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Enum Name="TileState">
+    <Position X="7.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAAAAAAAACAAAAAAAAAAACAAAEAAAA=</HashCode>
+      <FileName>Tile.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="맑은 고딕" Size="9" />
+</ClassDiagram>
