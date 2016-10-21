@@ -14,8 +14,8 @@ int MinesweeperGame::CheckNearMineTile(int j, int i)
 
             if (!(k == 0 && l == 0) &&
                 (ik >= 0 && ik < tileContainer.GetRow()) &&
-                (jl >= 0 && jl < tileContainer.GetColomn())&&
-                (typeid(*(tileContainer.GetTile(jl,ik).get())) == typeid(MineTile)))
+                (jl >= 0 && jl < tileContainer.GetColomn()) &&
+                (typeid(*(tileContainer.GetTile(jl, ik).get())) == typeid(MineTile)))
             {
                 result++;
             }
@@ -30,30 +30,34 @@ MinesweeperGame::MinesweeperGame(int width, int height)
 {
 }
 
-void MinesweeperGame::CreateTileMap(int difficult)
+void MinesweeperGame::Run()
 {
-    if (difficult > 100)
-        difficult = 100;
+}
 
-    std::knuth_b random(time(0));
-    std::uniform_int_distribution<int> distribution(0, 100);
-    auto generator = bind(distribution, random);
+void MinesweeperGame::CreateTileMap(int mineCount)
+{
+    int tileContainnerLength = tileContainer.GetColomn() * tileContainer.GetRow();
+    if (mineCount > tileContainnerLength - 10)
+        mineCount = tileContainnerLength - 10;
 
-    // 타일 배치
+
+    // 타일 초기화
     for (int i = 0; i < tileContainer.GetRow(); i++)
     {
         for (int j = 0; j < tileContainer.GetColomn(); j++)
         {
-            int gen = generator();
-            if (difficult <= gen)
-            {
-                tileContainer.SetTile(j, i, new Tile());
-            }
-            else
-            {
-                tileContainer.SetTile(j, i, new MineTile());
-            }
+            tileContainer.SetTile(j, i, new Tile());
         }
+    }
+    // 지뢰 배치
+    std::knuth_b random(time(0));
+    std::uniform_int_distribution<int> distribution(0, tileContainnerLength);
+    auto generator = bind(distribution, random);
+    for (int i = 0; i < mineCount; i++)
+    {
+        int x = generator() % tileContainer.GetColomn();
+        int y = generator() % tileContainer.GetRow();
+        tileContainer.SetTile(x, y, new MineTile());
     }
     // 타일 추적
     for (int i = 0; i < tileContainer.GetRow(); i++)

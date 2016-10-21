@@ -7,7 +7,7 @@ using namespace std;
 MinesweeperGame game(15,12);
 void main()
 {
-    game.CreateTileMap(15);
+    game.CreateTileMap(20);
     game.PrintTileMap(0,0);
     SteamB23::Console::ReadKey();
 }

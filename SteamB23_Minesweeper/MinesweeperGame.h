@@ -16,9 +16,13 @@ public:
     MinesweeperGame() : MinesweeperGame(10, 10) {};
     MinesweeperGame(int width, int height);
     
+    void Run();
+
     void CreateTileMap(int difficult);
     void PrintTileMap(int left, int top);
 
     ~MinesweeperGame();
+private:
+    
 };
 
