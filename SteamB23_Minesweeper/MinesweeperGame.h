@@ -11,18 +11,19 @@ class MinesweeperGame
 {
     TileContainner tileContainer;
     Point point;
+    int mineCount;
 
     bool isTileMapCreated;
     bool isPrinted;
     bool* openedTiles;
     bool isGameover;
 public:
-    MinesweeperGame() : MinesweeperGame(10, 10) {};
-    MinesweeperGame(int width, int height);
+    MinesweeperGame() : MinesweeperGame(15, 12, 20) {};
+    MinesweeperGame(int width, int height, int mineCount);
     
     void Run();
 
-    void CreateTileMap(int difficult);
+    void CreateTileMap(int mineCount);
     void PrintTileMap(int left, int top);
 
     ~MinesweeperGame();

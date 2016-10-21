@@ -2,9 +2,10 @@
 
 
 
-MinesweeperGame::MinesweeperGame(int width, int height)
+MinesweeperGame::MinesweeperGame(int width, int height, int mineCount)
     :tileContainer(width, height)
 {
+    this->mineCount = mineCount;
     // 타일 초기화
     for (int i = 0; i < tileContainer.GetRow(); i++)
     {
@@ -39,13 +40,17 @@ void MinesweeperGame::CreateTileMap(int mineCount)
         mineCount = tileContainnerLength - 10;
 
     // 지뢰 배치
-    std::knuth_b random(time(0));
+    std::knuth_b random((unsigned int)time(0));
     std::uniform_int_distribution<int> distribution(0, tileContainnerLength);
     auto generator = bind(distribution, random);
     for (int i = 0; i < mineCount; i++)
     {
-        int x = generator() % tileContainer.GetColomn();
-        int y = generator() % tileContainer.GetRow();
+        int x, y;
+        do
+        {
+            x = generator() % tileContainer.GetColomn();
+            y = generator() % tileContainer.GetRow();
+        } while (typeid(*(tileContainer.GetTile(x, y).get())) == typeid(MineTile));
         tileContainer.SetTile(x, y, new MineTile());
     }
     // 타일 추적
@@ -149,7 +154,8 @@ void MinesweeperGame::GameKey(SteamB23::ConsoleKey key)
     case SteamB23::ConsoleKey::Z:
         if (!isTileMapCreated)
         {
-            CreateTileMap(20);
+            CreateTileMap(mineCount);
+            PrintTileMap(0, 0);
             isTileMapCreated = true;
         }
         Open(point.x, point.y);
